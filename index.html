@@ -2,11 +2,31 @@
 <head>
   <meta charset="utf-8">
   <title>hello world</title>
+  <script src="./js/jquery-3.5.1.min.js"></script>
 </head>
 <body>
   <h3>Hello everybody! Now, you can see something at here.If you like it,please share this <b>URL (<font color='red'>www.yemei.pub</font>)</b> with your friends.</h3>
   <hr/>
   <!-- <a href='https://xiaobeidie.github.io/QQ/WNGXZ' target='_blank'>https://xiaobeidie.github.io/QQ/WNGXZ</a><br/></br/> -->
   <a href='./view/WNGXZ.html' target='_blank'>風呂を盗み見する</a><br/><br/>
+  <div id='list'></div>
+  <script>
+ $(function(){
+ $.ajax({
+  url:'./view/data.html',
+  type:'get',
+  dataType:'json',
+  success:function(data){
+   //方法中传入的参数data为后台获取的数据
+   for(i in data.data) //data.data指的是数组，数组里是对象，i为数组的索引
+   {
+    var tr;
+    tr='<a href="'+data.data[i].url+'" target="_blank">'+data.data[i].title+'</a><br/>';
+    $("#list").append(tr);
+   }
+  }
+ })
+})
+  </script>
 </body>
 </html>
