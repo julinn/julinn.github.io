@@ -21,7 +21,7 @@
        for(i in data.data)
        {
         var tr;
-        tr='<a href="'+data.data[i].Url+'" target="_blank">'+data.data[i].Title+'</a><br/><br/>';
+        tr='<span style="color: gray;">'+ data.data[i].FDate+ '</span> <a href="'+data.data[i].Url+'" target="_blank">'+data.data[i].Title+'</a><br/><br/>';
         $("#list").append(tr);
        }
       }
