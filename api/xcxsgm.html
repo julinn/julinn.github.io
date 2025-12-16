@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>参数转发页面</title>
+</head>
+<body>
+    <!-- 表单用于模拟POST请求 -->
+    <form id="dataForm">
+        <input type="text" name="username" value="admin">
+        <input type="password" name="password" value="123456">
+        <button type="submit">提交</button>
+    </form>
+
+    <script>
+        // 获取URL查询参数
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split('&');
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('=');
+                params[key] = decodeURIComponent(value || '');
+            });
+            return params;
+        }
+
+        // 监听表单提交
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 获取URL参数
+            const urlParams = getUrlParams();
+            
+            // 获取表单数据并转为JSON
+            const formData = new FormData(this);
+            const jsonData = {};
+            formData.forEach((value, key) => jsonData[key] = value);
+            
+            // 构建目标URL（保留原始查询参数）
+            const targetUrl = new URL(window.location.origin);
+            targetUrl.pathname = 'abc.php';
+            Object.keys(urlParams).forEach(key => {
+                targetUrl.searchParams.append(key, urlParams[key]);
+            });
+
+            // 发送POST请求
+            fetch(targetUrl.href, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('转发成功:', data);
+                // 可根据需要处理响应数据
+            })
+            .catch(error => {
+                console.error('转发失败:', error);
+            });
+        });
+    </script>
+</body>
+</html>
