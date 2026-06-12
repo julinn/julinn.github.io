@@ -453,6 +453,87 @@
     font-weight: 500;
   }
 
+  /* ===== Service Section ===== */
+  .service {
+    padding: 50px 0 60px;
+    background: var(--bg-white);
+  }
+  .service-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .service-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    background: rgba(27, 95, 220, 0.08);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .service-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--deep-blue);
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 32px 20px 28px;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    opacity: 0;
+    transition: opacity var(--transition);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(6,16,42,0.12);
+    border-color: var(--pale-blue);
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-card-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+  }
+  .service-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 10px;
+  }
+  .service-card-desc {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.7;
+  }
+
   /* ===== Footer ===== */
   .footer {
     background: var(--deep-blue);
@@ -552,6 +633,7 @@
   /* ===== Responsive ===== */
   @media (max-width: 1024px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
     .intro-grid { flex-direction: column; gap: 40px; }
     .footer-grid { flex-wrap: wrap; gap: 40px; }
     .hero-typewriter { font-size: 48px; }
@@ -560,6 +642,7 @@
   }
   @media (max-width: 640px) {
     .products-grid { grid-template-columns: 1fr; }
+    .service-grid { grid-template-columns: 1fr; }
     .section-inner { padding: 0 20px; }
     .hero-typewriter { font-size: 32px; min-height: 44px; }
     .hero-typewriter .cursor { height: 28px; width: 3px; }
@@ -583,8 +666,9 @@
     <span class="nav-name">巨林软件工作室</span>
   </a>
   <div class="nav-links">
-    <a href="#intro">关于我们</a>
+    <a href="#service">产品服务</a>
     <a href="#products">项目案例</a>
+    <a href="#intro">关于我们</a>
     <a href="#footer">联系方式</a>
   </div>
 </nav>
@@ -601,41 +685,33 @@
   <div class="hero-scroll-hint"><span></span></div>
 </section>
 
-<!-- ===== 工作室介绍 ===== -->
-<section class="section intro" id="intro">
+<!-- ===== 产品服务 ===== -->
+<section class="section service" id="service">
   <div class="section-inner">
-    <div class="intro-grid">
-      <div class="intro-text">
-        <div class="intro-label">关于我们</div>
-        <h3 class="intro-title">十七年深耕，专注医药医疗行业数字化</h3>
-        <div class="intro-desc">
-          <p>从2009年开始，我们一直专注于医药医疗行业软件开发，主导或参与相关各类ERP、HIS、CRM、RPA、医药电商平台等软件系统开发。团队精通医药流通企业的供应链管理逻辑、医疗机构的诊疗流程与数据规范、零售药店的进销存体系以及医药电商平台的合规运营要求。用技术与经验为行业客户提供高质量的软件系统解决方案。</p>
-          <p>我们的核心优势在于行业经验与工程能力的结合：既深入理解药监局GSP规范、医保接口、HL7标准等行业特殊性，又以务实的工程方法确保系统稳定可靠。我们坚持以产品思维做服务，以工程精神保品质——每一个交付的系统背后，都是对行业理解的深度沉淀，以及对客户业务的长期陪伴与持续优化。</p>
-        </div>
+    <div class="service-header">
+      <div class="service-label">产品服务</div>
+      <h2 class="service-title">全方位软件技术服务</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-card-icon">💡</div>
+        <div class="service-card-title">企业信息化咨询</div>
+        <div class="service-card-desc">告别信息孤岛，打通业务脉络</div>
       </div>
-      <div class="intro-visual">
-        <div class="intro-monitor">
-          <div class="intro-monitor-top">
-            <div class="intro-monitor-dot"></div>
-            <div class="intro-monitor-dot"></div>
-            <div class="intro-monitor-dot"></div>
-          </div>
-          <div class="intro-monitor-screen">
-            <div class="code-line"><span class="code-line-num">1</span><span class="code-keyword">namespace</span> <span class="code-type">Julin.Medical.Platform</span></div>
-            <div class="code-line"><span class="code-line-num">2</span><span class="code-punctuation">{</span></div>
-            <div class="code-line"><span class="code-line-num">3</span>  <span class="code-keyword">public class</span> <span class="code-type">PrescriptionService</span></div>
-            <div class="code-line"><span class="code-line-num">4</span>  <span class="code-punctuation">{</span></div>
-            <div class="code-line"><span class="code-line-num">5</span>    <span class="code-keyword">public async</span> <span class="code-type">Task&lt;RxResult&gt;</span> <span class="code-func">Validate</span>(<span class="code-type">RxOrder</span> <span class="code-var">order</span>)</div>
-            <div class="code-line"><span class="code-line-num">6</span>    <span class="code-punctuation">{</span></div>
-            <div class="code-line"><span class="code-line-num">7</span>      <span class="code-comment">// GSP 合规校验 & 库存锁定</span></div>
-            <div class="code-line"><span class="code-line-num">8</span>      <span class="code-keyword">var</span> <span class="code-var">gsp</span> = <span class="code-keyword">await</span> <span class="code-func">CheckGspCompliance</span>(<span class="code-var">order</span>);</div>
-            <div class="code-line"><span class="code-line-num">9</span>      <span class="code-keyword">var</span> <span class="code-var">inv</span> = <span class="code-keyword">await</span> <span class="code-func">LockInventory</span>(<span class="code-var">order</span>.<span class="code-var">Items</span>);</div>
-            <div class="code-line"><span class="code-line-num">10</span>      <span class="code-keyword">return</span> <span class="code-keyword">new</span> <span class="code-type">RxResult</span> { <span class="code-var">GspPassed</span> = <span class="code-var">gsp</span>, <span class="code-var">Stock</span> = <span class="code-var">inv</span> };</div>
-            <div class="code-line"><span class="code-line-num">11</span>    <span class="code-punctuation">}</span></div>
-            <div class="code-line"><span class="code-line-num">12</span>  <span class="code-punctuation">}</span></div>
-            <div class="code-line"><span class="code-line-num">13</span><span class="code-punctuation">}</span></div>
-          </div>
-        </div>
+      <div class="service-card">
+        <div class="service-card-icon">🤖</div>
+        <div class="service-card-title">软件流程自动化（RPA）</div>
+        <div class="service-card-desc">摒弃‌重复繁琐，驱动降本增效</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">⚙️</div>
+        <div class="service-card-title">软件定制</div>
+        <div class="service-card-desc">量身定制方案，精准匹配需求</div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-icon">🌐</div>
+        <div class="service-card-title">网站建设</div>
+        <div class="service-card-desc">从设计到备案上线一条龙服务</div>
       </div>
     </div>
   </div>
@@ -763,6 +839,46 @@
   </div>
 </section>
 
+<!-- ===== 工作室介绍 ===== -->
+<section class="section intro" id="intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="intro-label">关于我们</div>
+        <h3 class="intro-title">十七年深耕，专注医药医疗行业数字化</h3>
+        <div class="intro-desc">
+          <p>从2009年开始，我们一直专注于医药医疗行业软件开发，主导或参与相关各类ERP、HIS、CRM、RPA、医药电商平台等软件系统开发。团队精通医药流通企业的供应链管理逻辑、医疗机构的诊疗流程与数据规范、零售药店的进销存体系以及医药电商平台的合规运营要求。用技术与经验为行业客户提供高质量的软件系统解决方案。</p>
+          <p>我们的核心优势在于行业经验与工程能力的结合：既深入理解药监局GSP规范、医保接口、HL7标准等行业特殊性，又以务实的工程方法确保系统稳定可靠。我们坚持以产品思维做服务，以工程精神保品质——每一个交付的系统背后，都是对行业理解的深度沉淀，以及对客户业务的长期陪伴与持续优化。</p>
+        </div>
+      </div>
+      <div class="intro-visual">
+        <div class="intro-monitor">
+          <div class="intro-monitor-top">
+            <div class="intro-monitor-dot"></div>
+            <div class="intro-monitor-dot"></div>
+            <div class="intro-monitor-dot"></div>
+          </div>
+          <div class="intro-monitor-screen">
+            <div class="code-line"><span class="code-line-num">1</span><span class="code-keyword">namespace</span> <span class="code-type">Julin.Medical.Platform</span></div>
+            <div class="code-line"><span class="code-line-num">2</span><span class="code-punctuation">{</span></div>
+            <div class="code-line"><span class="code-line-num">3</span>  <span class="code-keyword">public class</span> <span class="code-type">PrescriptionService</span></div>
+            <div class="code-line"><span class="code-line-num">4</span>  <span class="code-punctuation">{</span></div>
+            <div class="code-line"><span class="code-line-num">5</span>    <span class="code-keyword">public async</span> <span class="code-type">Task&lt;RxResult&gt;</span> <span class="code-func">Validate</span>(<span class="code-type">RxOrder</span> <span class="code-var">order</span>)</div>
+            <div class="code-line"><span class="code-line-num">6</span>    <span class="code-punctuation">{</span></div>
+            <div class="code-line"><span class="code-line-num">7</span>      <span class="code-comment">// GSP 合规校验 & 库存锁定</span></div>
+            <div class="code-line"><span class="code-line-num">8</span>      <span class="code-keyword">var</span> <span class="code-var">gsp</span> = <span class="code-keyword">await</span> <span class="code-func">CheckGspCompliance</span>(<span class="code-var">order</span>);</div>
+            <div class="code-line"><span class="code-line-num">9</span>      <span class="code-keyword">var</span> <span class="code-var">inv</span> = <span class="code-keyword">await</span> <span class="code-func">LockInventory</span>(<span class="code-var">order</span>.<span class="code-var">Items</span>);</div>
+            <div class="code-line"><span class="code-line-num">10</span>      <span class="code-keyword">return</span> <span class="code-keyword">new</span> <span class="code-type">RxResult</span> { <span class="code-var">GspPassed</span> = <span class="code-var">gsp</span>, <span class="code-var">Stock</span> = <span class="code-var">inv</span> };</div>
+            <div class="code-line"><span class="code-line-num">11</span>    <span class="code-punctuation">}</span></div>
+            <div class="code-line"><span class="code-line-num">12</span>  <span class="code-punctuation">}</span></div>
+            <div class="code-line"><span class="code-line-num">13</span><span class="code-punctuation">}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Footer ===== -->
 <footer class="footer" id="footer">
   <div class="section-inner">
@@ -772,15 +888,17 @@
           <div class="footer-logo">巨</div>
           <span class="footer-name">巨林软件工作室</span>
         </div>
-        <p class="footer-tagline">始于2009年，专注医药医疗行业软件开发。<br/>以技术驱动创新，以专业成就信赖。</p>
+        <p class="footer-tagline">始于2009年，专注医药医疗行业软件开发。<br/>以技术驱动创新，以专业成就信赖。<br/><br/>
+        技术栈：C#，Asp.Net，.Net Core，Delphi，<br/>MsSQL，MySQL
+        </p>
       </div>
       <div class="footer-col">
         <h4>产品服务</h4>
-        <a href="#products">企业信息化咨询</a>
-        <a href="#products">软件流程自动化（RPA）</a>
-        <a href="#products">软件定制</a>
-        <a href="#products">网站建设</a>
-        <a href="#products">小程序开发</a>        
+        <a href="#service">企业信息化咨询</a>
+        <a href="#service">软件流程自动化（RPA）</a>
+        <a href="#service">软件定制</a>
+        <a href="#service">网站建设</a>
+        <a href="#service">小程序开发</a>        
       </div>
       <div class="footer-col">
         <h4>联系方式</h4>
@@ -788,7 +906,7 @@
         <a href="#footer">🌏 julinsoft</a>
         <a href="#footer">🐧 75262579</a>
         <!-- 📞 -->
-        <a>📍 中国 · 深圳</a>
+        <a href="#footer">📍 广东·深圳·坪山</a>
         <a>🕐 周一至周五 9:00-17:00</a>
       </div>
     </div>
@@ -804,7 +922,7 @@
   // ========== Typewriter Effect ==========
   (function() {
     const el = document.getElementById('typewriter');
-    const words = ['Hello World', 'Hello 医疗', 'Hello 未来'];
+    const words = ['Hello World', 'Hello Future', 'Hello Visitor'];
     let wordIdx = 0;
     let charIdx = 0;
     let isDeleting = false;
