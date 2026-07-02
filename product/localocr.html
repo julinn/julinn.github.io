@@ -1,5 +1,304 @@
-<html>
-  <head>
-    <title>local ocr</title>
-  </head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地文字识别 - 微信电商智能回复系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 80px 0;
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #3498db;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        /* 核心优势：2行2列，每列50%宽度 */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+        /* 截图区域适配4张图，自动两列排版 */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .screenshot-card {
+            text-align: center;
+        }
+        .screenshot-card img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .screenshot-card img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .screenshot-card p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .advantage {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+        .advantage ul {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        .advantage li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        .advantage li::before {
+            content: "✓";
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            opacity: 0.8;
+        }
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部banner -->
+    <header>
+        <div class="container">
+            <h1>本地文字识别 - 微信电商智能回复系统</h1>
+            <p>无需消耗Token，24小时智能回复，精准捕捉每一个商机，让微商运营更高效、更省心！</p>
+            <br/>
+            <a class="download-btn" href="https://pan.quark.cn/s/1ebf36da5b21?pwd=T3kG" target="_blank">立即下载</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 核心优势：2行2列布局 -->
+        <section class="section">
+            <h2 class="section-title">核心优势</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>本地识别 零Token消耗</h3>
+                    <p>搭载本地文字识别模型，无需调用第三方API，不消耗任何Token资源，大幅降低运营成本，识别过程全程本地化，客户对话数据本地留存更安全。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>极速识别 超高准确率</h3>
+                    <p>中文印刷体识别率高达95%以上，毫秒级快速识别；有无显卡均可稳定运行，配备独立显卡时识别速度大幅提升，低配电脑也能流畅使用。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>7×24小时无人自动回复</h3>
+                    <p>专为微信微商电商场景深度开发，自定义电商话术库，全天候智能匹配客户咨询自动回复，不用人工守岗，不错过任何潜在成交客户。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>未匹配消息全记录+双重提醒</h3>
+                    <p>无法匹配话术的客户消息自动存档保存，弹窗+提示音双重预警提醒人工跟进，完整记录客户昵称、消息内容与咨询时间，方便后期优化话术、跟进客户。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品实景展示（新增第4张未匹配界面截图） -->
+        <section class="section">
+            <h2 class="section-title">产品实景界面展示</h2>
+            <div class="screenshots">
+                <div class="screenshot-card">
+                    <img src="./image/localocr1.png" alt="文字识别主界面" id="img1">
+                    <p>主识别界面 - 区域截图/图片导入OCR识别</p>
+                </div>
+                <div class="screenshot-card">
+                    <img src="./image/localocr2.png" alt="话术管理界面" id="img2">
+                    <p>话术管理界面 - 批量管理售前/售中/售后话术库</p>
+                </div>
+                <div class="screenshot-card">
+                    <img src="./image/localocr3.png" alt="参数设置界面" id="img3">
+                    <p>参数设置界面 - 自定义匹配度、提醒开关</p>
+                </div>
+                <div class="screenshot-card">
+                    <img src="./image/localocr4.png" alt="未匹配回复记录界面" id="img4">
+                    <p>未匹配回复界面 - 自动存储未匹配话术咨询</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 测试环境 -->
+        <section class="section advantage">
+            <h2 class="section-title">功能测试环境</h2>
+            <ul>
+                <li>操作系统：Windows10 64位</li>
+                <li>显示器分辨率：1920*1080</li>
+                <li>微信版本（电脑版）：4.1.10.53</li>
+                <li>微信设置：左下角三横-设置-通用-外观-浅色模式；字体大小：标准</li>
+                <p style="color: red;"><b>注意：先测试再付费，以免系统不兼容无法正常使用</b></p>
+            </ul>
+        </section>
+
+        <!-- 功能详情 -->
+        <section class="section advantage">
+            <h2 class="section-title">选择本系统的核心理由</h2>
+            <ul>
+                <li>完全本地离线OCR识别，不产生API计费、不消耗Token，长期使用零额外费用</li>
+                <li>话术支持标签分类、快速检索，覆盖售前咨询、物流跟进、售后维权全场景</li>
+                <li>话术匹配采用向量检索技术，匹配度0.6~0.8自由调节，平衡匹配精准度与回复覆盖范围</li>
+                <li>未匹配消息完整留存昵称、内容、时间，支持一键清空、单条删除，便于复盘优化话术</li>
+                <li>弹窗+提示音双重提醒，漏看客户消息，及时抓住商机提升成交率</li>
+                <li>兼容有无独立显卡设备，轻量化运行，普通办公电脑即可稳定部署</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>本地文字识别 - 微信电商智能回复系统 © 2026 巨林软件 www.julinn.com</p>
+            <p>赋能微商高效客服，7×24小时自动接待客户</p>
+        </div>
+    </footer>
+
+    <script>
+        // 图片点击新窗口预览大图
+        const images = document.querySelectorAll('.screenshot-card img');
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                const previewWin = window.open('', '_blank');
+                previewWin.document.write(`
+                    <html>
+                        <head><title>${img.alt}</title></head>
+                        <body style="margin:0;background:#111;display:flex;justify-content:center;align-items:center;min-height:100vh;">
+                            <img src="${img.src}" style="max-width:98%;max-height:98vh;">
+                        </body>
+                    </html>
+                `);
+            });
+        });
+    </script>
+</body>
 </html>
