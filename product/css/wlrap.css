@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", sans-serif;
+}
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.section {
+    padding: 80px 0;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    position: relative;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    margin: 15px auto;
+    border-radius: 2px;
+}
+/* 核心功能：2列网格，自动换行 */
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+.feature-card {
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+.feature-card p {
+    color: #666;
+    font-size: 1rem;
+}
+/* 截图区域适配图片，自动两列排版 */
+.screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+.screenshot-card {
+    text-align: center;
+}
+.screenshot-card img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.screenshot-card img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.screenshot-card p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #444;
+}
+.download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+.download-btn:hover {
+    background-color: #2980b9;
+}
+.cta-button {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.advantage {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+.advantage ul {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+}
+.advantage li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.advantage li::before {
+    content: "✓";
+    color: #27ae60;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+footer p {
+    opacity: 0.8;
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .features {
+        grid-template-columns: 1fr;
+    }
+    .screenshots {
+        grid-template-columns: 1fr;
+    }
+}

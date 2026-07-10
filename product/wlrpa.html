@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巨林RPA自动化助手 - 智能自动化工具</title>
+    <link rel="stylesheet" href="./css/wlrap.css">
+</head>
+<body>
+    <!-- 头部banner -->
+    <header>
+        <div class="container">
+            <h1>智能自动化工具（RPA）</h1>
+            <p>模拟真人操作节奏，支持随机延迟、随机位置点击、CSV数据驱动循环、模拟按键与百度文字识别，把重复繁琐的工作交给软件，7×24小时无人值守，稳定高效更安心。</p>
+            <br/>
+            <a class="download-btn" href="#" target="_blank">立即下载</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 核心功能：2列网格 -->
+        <section class="section">
+            <h2 class="section-title">核心功能</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>随机延迟 · 模拟真人节奏</h3>
+                    <p>支持设置最小/最大延迟时间范围，每次操作前在范围内随机等待，避免固定间隔被识别为机器行为，更贴近真人操作习惯，操作节奏自然不僵硬。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>随机位置点击 · 防封更自然</h3>
+                    <p>可指定屏幕目标区域，在范围内随机选取坐标进行点击，配合随机延迟让点击轨迹更自然，有效规避平台风控策略，降低账号异常风险。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>CSV数据驱动 · for循环批处理</h3>
+                    <p>支持导入CSV表格，逐行读取数据（如账号、昵称、话术、商品信息），通过for循环批量执行任务，一次配置即可自动完成成百上千条重复操作。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>模拟按键 · 覆盖全键盘操作</h3>
+                    <p>完整模拟键盘输入与组合键（如 Ctrl+C / Ctrl+V、Enter、方向键、Tab 等），可编排多步按键序列，适用于表单填写、消息发送、快捷操作等场景。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>百度文字识别 · 屏幕文字自动读取</h3>
+                    <p>集成百度OCR能力，可指定截取屏幕区域并识别其中文字，将识别结果用于条件判断或数据回填，实现真正"看得见"的智能自动化。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>图形化配置 · 附带指令说明和样例，轻松上手</h3>
+                    <p>参数与流程通过可视化界面配置，无需专业代码能力；普通运营人员也能快速搭建属于自己的自动化流程。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品实景展示 -->
+        <section class="section">
+            <h2 class="section-title">产品实景界面展示</h2>
+            <div class="screenshots">
+                <div class="screenshot-card">
+                    <img src="./image/rpa2.png" loading="lazy" alt="RPA主控制台界面" id="img1">
+                    <p>主控制台 - 任务列表与参数配置</p>
+                </div>
+                <div class="screenshot-card">
+                    <img src="./image/rpa3.png" loading="lazy" alt="RPA运行日志与监控界面" id="img2">
+                    <p>流程编辑 - 执行日志与实时状态跟踪</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 百度OCR配置说明 -->
+        <section class="section advantage">
+            <h2 class="section-title">百度文字识别（OCR）配置说明</h2>
+            <ul>
+                <li>注册并登录 百度智能云（cloud.baidu.com）账号，完成实名认证；</li>
+                <li>进入「文字识别」控制台，开通「通用文字识别（标准版 / 高精度版）」服务；</li>
+                <li>在「应用列表」中创建应用，获取 API Key 与 Secret Key；</li>
+                <li>在软件「参数设置 - 百度OCR」中填入上述 Key 并保存即可启用；</li>
+                <li>免费额度用尽后将按百度官方计费标准收费，请关注用量避免服务中断。</li>
+                <p style="color: red;"><b>注意：使用百度文字识别功能前，需提前开通百度OCR服务并配置相关参数，否则该功能将无法正常工作。</b></p>
+            </ul>
+        </section>
+
+        <!-- 功能测试环境 -->
+        <section class="section advantage">
+            <h2 class="section-title">功能测试环境</h2>
+            <ul>
+                <li>操作系统：Windows10 64位</li>
+                <li>显示器分辨率：1920*1080</li>
+                <li>百度OCR：需提前在百度智能云开通「文字识别」服务并获取 API Key / Secret Key</li>
+                <p style="color: red;"><b>注意：先测试再付费，以免系统不兼容无法正常使用</b></p>
+            </ul>
+        </section>
+
+        <!-- 选择本系统的核心理由 -->
+        <section class="section advantage">
+            <h2 class="section-title">选择本系统的核心理由</h2>
+            <ul>
+                <li>随机延迟 + 随机点击双重拟真，操作更接近真人，显著降低账号风控风险</li>
+                <li>CSV + for循环数据驱动，一次配置批量执行，把人力从重复劳动中彻底解放</li>
+                <li>模拟按键覆盖全键盘，可编排复杂多步操作序列，适配各类业务流流程</li>
+                <li>集成百度OCR，可读取屏幕文字并参与逻辑判断，实现"感知-决策-执行"闭环</li>
+                <li>图形化配置、零代码上手，运营人员无需懂编程即可搭建自动化流程</li>
+                <li>轻量运行，普通办公电脑即可稳定部署，7×24小时无人值守</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>巨林RPA自动化助手 © 2026 巨林软件 www.julinn.com</p>
+            <p>让重复工作一键自动化，释放团队生产力</p>
+        </div>
+    </footer>
+
+    <script>
+        // 图片点击新窗口预览大图
+        const images = document.querySelectorAll('.screenshot-card img');
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                const previewWin = window.open('', '_blank');
+                previewWin.document.write(`
+                    <html>
+                        <head><title>${img.alt}</title></head>
+                        <body style="margin:0;background:#111;display:flex;justify-content:center;align-items:center;min-height:100vh;">
+                            <img src="${img.src}" style="max-width:98%;max-height:98vh;">
+                        </body>
+                    </html>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>
